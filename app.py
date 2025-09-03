@@ -5,6 +5,10 @@ from feature_extraction import FeatureExtraction
 
 app = Flask(__name__)
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"status": "ok", "message": "Phishing Detector API running"})
+
 @app.route("/check", methods=["POST"])
 def check_url():
     data = request.get_json()
@@ -32,4 +36,4 @@ def check_url():
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # Railway will inject PORT
-    app.run(debug=True, host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=port)
