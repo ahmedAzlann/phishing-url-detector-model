@@ -1,5 +1,4 @@
 # app.py
-import os
 from flask import Flask, request, jsonify
 from feature_extraction import FeatureExtraction
 
